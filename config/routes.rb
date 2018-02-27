@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
+  # Reset pages
+  get 'reset_password' => 'pages#reset_password'
+
 end

@@ -1,5 +1,4 @@
 <!-- Login page -->
-
 <% if current_user %>
 	<meta http-equiv="refresh" content="0; URL='home" />
 <% else %>
@@ -8,12 +7,13 @@
 	    <div class="form">
 			<h1>Login</h1>
 				<%= form_for(:session, url: login_path) do |f| %> 
-				<%= f.email_field :email, :placeholder => "Email" %> 
-				<%= f.password_field :password, :placeholder => "Password" %> 
+				<%= f.email_field :email, :placeholder => "Email" %> </br>
+				<%= f.password_field :password, :placeholder => "Password" %> </br>
 				<%= f.submit "Log in", class: "btn-submit" %>
 			<% end %>
 	    </div>
-	    <p><%= link_to "Signup", 'signup' %></a></p>
+			<p>New to StudentTrades?&nbsp;<%= link_to "Sign up!", 'signup' %></a></p>
+			<p><%= link_to "Forgot Password?", 'reset_password' %></a></p>
 	  </div>
 	</div>
 <% end %>

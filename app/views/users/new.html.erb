@@ -1,5 +1,4 @@
 <!-- Signup page -->
-
 <% if current_user %>
   <meta http-equiv="refresh" content="0; URL='home" />
 <% else %>
@@ -9,12 +8,19 @@
 
       <h1>Sign up</h1>
       <%= form_for(@user) do |f| %>
-        <%= f.text_field :first_name, :placeholder => "First name" %>
-        <%= f.text_field :last_name, :placeholder => "Last name" %>
-        <%= f.text_field :phone_number, :placeholder => "Phone number" %>
-        <%= f.email_field :email, :placeholder => "Email" %>
-        <%= f.password_field :password, :placeholder => "Password" %>
-        <%= f.submit "Create an account", class: "btn-submit" %>
+        <dl>
+          <dt>First Name</dt>
+          <dd><%= f.text_field :first_name, :placeholder => "John" %></dd> <br/>
+          <dt>Last Name</dt>
+          <dd><%= f.text_field :last_name, :placeholder => "Doe" %></dd> <br/>
+          <dt>Phone Number</dt>
+          <dd><%= f.text_field :phone_number, :placeholder => "xxx-xxx-xxxx" %></dd> <br/>
+          <dt>Email</dt>
+          <dd><%= f.email_field :email, :placeholder => "youremail@address.com" %></dd> <br/>
+          <dt>Password</dt>
+          <dd><%= f.password_field :password, :placeholder => "!ts53Cr3t" %></dd> <br/>
+        </dl>
+        <%= f.submit "Create an account", class: "btn-submit" %> <br/>
       <% end %>
       <p><%= link_to "Login", 'login' %></a></p>
 
