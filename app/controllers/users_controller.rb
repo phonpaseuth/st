@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 	
+  # Sign up page
 	def new
 		@user = User.new
 	end
 
+  # Saving info to database
 	def create 
   		@user = User.new(user_params) 
   		if @user.save 

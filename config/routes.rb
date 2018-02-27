@@ -3,13 +3,12 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   # Sign up pages
-  get 'signup'  => 'users#new' 
-  resources :user
+  get 'signup'  => 'users#new'
+  resources :users
   
   # Login pages
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-
 
 end
