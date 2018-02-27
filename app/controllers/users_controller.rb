@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   		end 
 	end
 
+  # Showing account's info
+  def info
+  end
+
 	private
   		def user_params
     		params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :password)

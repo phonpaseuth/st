@@ -1,0 +1,11 @@
+<!-- User's info page -->
+
+<% if current_user %>
+	<h1>Personal info: </h1>
+	<p>First name: <%= current_user.first_name %></p>
+	<p>Last name: <%= current_user.last_name %></p>
+	<p>Phone number: <%= current_user.phone_number %></p>
+	<p>Email: <%= current_user.email %></p>
+<% else %>
+	<meta http-equiv="refresh" content="0; URL='login" />
+<% end %>
