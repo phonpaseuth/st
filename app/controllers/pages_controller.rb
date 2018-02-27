@@ -7,6 +7,10 @@ class PagesController < ApplicationController
 	
 	def reset_password; end;
 
+	def show
+		@post = Post.find(params[:id])
+	end
+
 	def new
 		@new_post = Post.new
 	end

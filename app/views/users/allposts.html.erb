@@ -1,0 +1,14 @@
+<!-- Showing all posts own by a user -->
+
+<h1><%= @user.first_name %> <%= @user.last_name %>'s information</h1>
+<h4>Contact info</h4>
+<p><small>Phone number: <%= @user.id %></small></p>
+<p><small>Email: <%= @user.email %></small></p>
+<hr>
+
+<% @posts.each do |p| %>
+	<a href="/post/<%= p.id %>"><p><%= p.title %></p></a>
+	<p><%= p.description %></p>
+	<p><%= p.category %></p>
+	<hr>
+<% end %>
