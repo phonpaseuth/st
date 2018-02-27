@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # Home page
   get 'home' => 'pages#home'
   root 'pages#home'
 
@@ -15,5 +16,8 @@ Rails.application.routes.draw do
 
   # Reset pages
   get 'reset_password' => 'pages#reset_password'
+  # New post
+  get 'createpost' => 'pages#new'
+  post 'createpost' => 'pages#create'
 
 end
