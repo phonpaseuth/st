@@ -11,7 +11,7 @@ class PagesController < ApplicationController
 
 	def create 
  		 @new_post = Post.new(post_params) 
-  		if @new_post.save 
+  		if @new_post.save
    			redirect_to '/' 
   		else 
     		render 'new'
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 
 	private 
   		def post_params 
-    		params.require(:post).permit(:title, :description, :category) 
+    		params.require(:post).permit(:title, :description, :category).merge(user_id: current_user.id)
   	end
 
 end
