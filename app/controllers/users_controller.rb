@@ -20,6 +20,12 @@ class UsersController < ApplicationController
   def info
   end
 
+  # Show all the pages own by a user
+  def allposts
+    @user = User.find(params[:id])
+    @posts = @user.posts.order(created_at: :desc)
+  end
+
 	private
   		def user_params
     		params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :password)

@@ -5,6 +5,10 @@ class PagesController < ApplicationController
 		@posts = Post.order(created_at: :desc).all
 	end
 
+	def show
+		@post = Post.find(params[:id])
+	end
+
 	def new
 		@new_post = Post.new
 	end
