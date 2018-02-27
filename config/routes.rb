@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # Home page
   get 'home' => 'pages#home'
   root 'pages#home'
 
@@ -12,5 +13,9 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+
+  # New post
+  get 'createpost' => 'pages#new'
+  post 'createpost' => 'pages#create'
 
 end

@@ -1,1 +1,14 @@
-<h1> this is a home page </h1>
+<center>
+
+<h1>Home page</h1>
+<hr>
+
+<% @posts.each do |p| %>
+	<H2><%= p.title %></H2>
+	<small><%= p.category %></small>
+	<p>by: <%= p.user.first_name %> <%= p.user.last_name %></p>
+	<p><%= p.description %></p>
+	<hr>
+<% end %>
+
+</center>
