@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-	before_action :require_user, only: [:home]
-
+	before_action :require_user
+	
 	def home
 		@posts = Post.order(created_at: :desc).all
 	end

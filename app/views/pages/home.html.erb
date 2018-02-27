@@ -5,7 +5,8 @@
 
 <% @posts.each do |p| %>
 	<a href="/post/<%= p.id %>"><H2><%= p.title %></H2></a>
-	<small><%= p.category %></small>
+	<p><%= p.category %></p>
+	<p><%= time_ago_in_words(p.created_at) %> ago</p>
 	<p><%= p.description %></p>
 	<hr>
 <% end %>

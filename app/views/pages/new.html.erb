@@ -1,23 +1,17 @@
 <!-- Create a post page -->
 
-<% if current_user %>
-	<h1>Create a post</h1>
-	<hr>
+<h1>Create a post</h1>
+<hr>
 
-	<div class="post">
-		<div class="container">
-			<div class="form">
-				<%= form_for(:post, url: createpost_path) do |f| %>  
-					<%= f.text_field :title, :placeholder => "Title" %> 
-					<%= f.text_field :description, :placeholder => "Description" %>
-					<%= f.text_field :category, :placeholder => "Category" %> 
-					<%= f.submit "Create", class: "btn-submit" %>
-				<% end %>
-
-			</div>
-		</div>
-	</div>
-
-<% else %>
-	<meta http-equiv="refresh" content="0; URL='home" />
-<% end %>
+<div class="post">
+  <div class="container">
+    <div class="form">
+      <%= form_for(:post, url: createpost_path) do |f| %>  
+      <%= f.text_field :title, :placeholder => "Title" %> 
+      <%= f.text_field :description, :placeholder => "Description" %>
+      <%= f.text_field :category, :placeholder => "Category" %> 
+      <%= f.submit "Create", class: "btn-submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>
