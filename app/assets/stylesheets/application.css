@@ -1,10 +1,13 @@
 /*
 Purple: #990099
 Gold: #ffcc33
+DarkGray: #dddddd
+Light Gray: #f2f2f2
 */
 body {
-    background-color: #f2f2f2;
-    text-align: center
+    background-color: #dddddd;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif/**/
 }
 
 .container-fluid {
@@ -16,34 +19,52 @@ body {
 }
 
 .login .container, .signup .container {
-    width: 250px;
+    width: 270px;
     border-width: 2px;
     border-style: groove;
     border-color: #990099;
     border-radius: 5px;
-    background-color: #f2f2f2bb;
+    background-color: #f2f2f2;
     text-align: left;
 }
-/*
-.login .form, .info, {
-    text-align: center;
+
+.info .container {
+    text-align: left;
+    width: 200px;
 }
-*/
+
+.post .container {
+    width: 400px;
+    text-align: left;
+}
 
 .form dd {
     padding-bottom: 0px;
 }
 
-.form dd input {
+.login .form input, .signup .form input {
     width: 100%;
 }
 
-.form dt {
+.post .form dd input {
+    width: 100%;
+}
+
+.post .form textarea {
+    width: 100%;
+    height: 100px;
+}
+/*
+.post .form input .btn-submit {
+    text-align: center;
+}
+*/
+.form dt, .info dt {
     padding-top: 10px;
 }
 
 hr {
-    border-top: 1px solid #ffcc33;
+    border-top: 2px solid #ffcc33;
     display: block;
     height: 1px;
 }
