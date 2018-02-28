@@ -6,14 +6,10 @@
 <p><small>Email: <%= @user.email %></small></p>
 <hr>
 
-<% if @posts %>
-	<% @posts.each do |p| %>
-		<a href="/post/<%= p.id %>"><p><%= p.title %></p></a>
-		<p>Category: <%= p.category %></p>
-		<p>Created: <%= time_ago_in_words(p.created_at) %> ago</p>
-		<p><%= p.description %></p>
-		<hr>
-	<% end %>
-<% else %>
-	<p>No post</p>
+<% @posts.each do |p| %>
+	<a href="/post/<%= p.id %>"><p><%= p.title %></p></a>
+	<p>Category: <%= p.category %></p>
+	<p>Created: <%= time_ago_in_words(p.created_at) %> ago</p>
+	<p><%= p.description %></p>
+	<hr>
 <% end %>
