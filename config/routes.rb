@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # Edit post
   get '/post/:id/edit' => 'pages#edit', as: :edit_post
   post '/post/:id' => 'pages#update', as: :update_post
+  # Delete post
+  delete '/post/:id' => 'pages#destroy', as: :delete_post
 
 
   # Sign up pages
