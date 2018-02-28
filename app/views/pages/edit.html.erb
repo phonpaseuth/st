@@ -1,0 +1,17 @@
+<!-- Edit a post -->
+
+<h1>Edit a post</h1>
+<hr>
+
+<div class="update">
+  <div class="container">
+    <div class="form">
+      <%= form_for(:post, url: update_post_path) do |f| %>  
+      <%= f.text_field :title, :placeholder => "Title" %> 
+      <%= f.text_field :description, :placeholder => "Description" %>
+      <%= f.text_field :category, :placeholder => "Category" %> 
+      <%= f.submit "Update", class: "btn-submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>

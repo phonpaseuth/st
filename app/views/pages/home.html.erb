@@ -5,7 +5,9 @@
 
 <% @posts.each do |p| %>
 	<a href="/post/<%= p.id %>"><H2><%= p.title %></H2></a>
-	<small><%= p.category %></small>
+	<p><%= p.category %></p>
+	<p><%= time_ago_in_words(p.created_at) %> ago</p>
+	<p>By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></p></a>
 	<p><%= p.description %></p>
 	<hr>
 <% end %>

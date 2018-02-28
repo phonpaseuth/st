@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # Display all posts
   get '/home' => 'pages#home'
   root 'pages#home'
@@ -7,6 +8,9 @@ Rails.application.routes.draw do
    # New post
   get '/createpost' => 'pages#new'
   post '/createpost' => 'pages#create'
+  # Edit post
+  get '/post/:id/edit' => 'pages#edit', as: :edit_post
+  post '/post/:id' => 'pages#update', as: :update_post
 
 
   # Sign up pages
