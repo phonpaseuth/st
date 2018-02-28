@@ -15,7 +15,8 @@ body {
   }
 
 .container-fluid a:link, .container-fluid a:visited, .container-fluid li a:link {
-    color: white;
+    /*color: white;*/
+    color: #FFFFFF
 }
 
 .login .container, .signup .container {
@@ -59,12 +60,12 @@ body {
     padding-top: 10px;
 }
 
-.home-post, .show-post {
+.home-post, .show-post, .contact, .a-post {
     width: 100%;
     border-bottom: 2px solid #ffcc33
 }
 
-.home-post .container, .show-post .container {
+.home-post .container, .show-post .container, .contact .container, .a-post .container {
     text-align: left;
     width: 40%;
     min-width: 400px;

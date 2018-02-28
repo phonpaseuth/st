@@ -1,15 +1,24 @@
 <!-- Showing all posts own by a user -->
+<!--<div class="allposts">-->
+	<div class"contact">
+		<div class="container">
+			<h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Information</h1>
+			<h4>Contact Info</h4>
+			<p><small>Phone number: <%= @user.phone_number %></small></p>
+			<p><small>Email: <%= @user.email %></small></p>
+		</div>
+	</div>
 
-<h1><%= @user.first_name %> <%= @user.last_name %>'s information</h1>
-<h4>Contact info</h4>
-<p><small>Phone number: <%= @user.phone_number %></small></p>
-<p><small>Email: <%= @user.email %></small></p>
-<hr>
+	<hr/>
 
-<% @posts.each do |p| %>
-	<a href="/post/<%= p.id %>"><p><%= p.title %></p></a>
-	<p>Category: <%= p.category %></p>
-	<p>Created: <%= time_ago_in_words(p.created_at) %> ago</p>
-	<p><%= p.description %></p>
-	<hr>
-<% end %>
+	<% @posts.each do |p| %>
+		<div class="a-post">
+			<div class="container">
+			<a href="/post/<%= p.id %>"><p><%= p.title %></p></a>
+			<p>Category: <%= p.category %></p>
+			<p>Created: <%= time_ago_in_words(p.created_at) %> ago</p>
+			<p><%= p.description %></p>
+			</div>
+		</div>
+	<% end %>
+<!--</div>-->
