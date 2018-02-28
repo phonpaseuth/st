@@ -4,6 +4,8 @@ class PagesController < ApplicationController
 	def home
 		@posts = Post.order(created_at: :desc).all
 	end
+	
+	def reset_password; end;
 
 	def show
 		@post = Post.find(params[:id])

@@ -1,0 +1,49 @@
+/*
+Purple: #990099
+Gold: #ffcc33
+*/
+body {
+    background-color: #f2f2f2;
+    text-align: center
+}
+
+.container-fluid {
+    background-color: #990099;
+  }
+
+.container-fluid a:link, .container-fluid a:visited, .container-fluid li a:link {
+    color: white;
+}
+
+.login .container, .signup .container {
+    width: 250px;
+    border-width: 2px;
+    border-style: groove;
+    border-color: #990099;
+    border-radius: 5px;
+    background-color: #f2f2f2bb;
+    text-align: left;
+}
+/*
+.login .form, .info, {
+    text-align: center;
+}
+*/
+
+.form dd {
+    padding-bottom: 0px;
+}
+
+.form dd input {
+    width: 100%;
+}
+
+.form dt {
+    padding-top: 10px;
+}
+
+hr {
+    border-top: 1px solid #ffcc33;
+    display: block;
+    height: 1px;
+}

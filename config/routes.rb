@@ -26,4 +26,12 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+
+
+  # Reset pages
+  get 'reset_password' => 'pages#reset_password'
+  # New post
+  get 'createpost' => 'pages#new'
+  post 'createpost' => 'pages#create'
+
 end

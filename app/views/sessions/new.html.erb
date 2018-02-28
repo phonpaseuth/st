@@ -1,19 +1,23 @@
 <!-- Login page -->
-
 <% if current_user %>
 	<meta http-equiv="refresh" content="0; URL='home" />
 <% else %>
 	<div class="login">
+		<h1>Login</h1>
 	  <div class="container">
 	    <div class="form">
-			<h1>Login</h1>
 				<%= form_for(:session, url: login_path) do |f| %> 
-				<%= f.email_field :email, :placeholder => "Email" %> 
-				<%= f.password_field :password, :placeholder => "Password" %> 
-				<%= f.submit "Log in", class: "btn-submit" %>
+				<dl>
+					<dt>Email</dt>
+					<dd><%= f.email_field :email, :placeholder => "" %></dd>
+					<dt>Password</dt>
+					<dd><%= f.password_field :password, :placeholder => "" %></dd>
+				</dl>
+				<%= f.submit "Log In", class: "btn-submit" %>
 			<% end %>
 	    </div>
-	    <p><%= link_to "Signup", 'signup' %></a></p>
+			<p>New to StudentTrades?&nbsp;<%= link_to "Sign up!", 'signup' %></a></p>
+			<p><%= link_to "Forgot Password?", 'reset_password' %></a></p>
 	  </div>
 	</div>
 <% end %>

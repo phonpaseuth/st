@@ -1,7 +1,15 @@
 <!-- User's info page -->
 
-<h1>Personal info: </h1>
-<p>First name: <%= current_user.first_name %></p>
-<p>Last name: <%= current_user.last_name %></p>
-<p>Phone number: <%= current_user.phone_number %></p>
-<p>Email: <%= current_user.email %></p>
+<div class="info">
+	<h1>Personal info: </h1>
+	<dl>
+		<dt>First name</dt>
+		<dd><%= current_user.first_name %></dd>
+		<dt>Last name</dt>
+		<dd><%= current_user.last_name %></dd>
+		<dt>Phone number</dt>
+		<dd><%= current_user.phone_number %></dd>
+		<dt>Email</dt>
+		<dd><%= current_user.email %></dd>
+	</dl>
+</div>
