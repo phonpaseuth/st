@@ -4,8 +4,9 @@
 <p>Category: <%= @post.category %></p>
 <p>Created: <%= time_ago_in_words(@post.created_at) %> ago</p>
 <p>By: <a href="/posts/user/<%= @post.user.id %>"><%= @post.user.first_name %> <%= @post.user.last_name %></p></a>
-<p><%= @post.description %></p>
-
 <% if @post.user.id == @current_user.id %>
-	<%= link_to "Edit post", edit_post_path(@post) %>
+	<%= link_to "Edit", edit_post_path(@post) %>
+	<%= link_to 'Delete', delete_post_path(@post), method: :delete, data: { confirm: 'Confirm deletion?' } %> 
 <% end %>
+<hr>
+<p><%= @post.description %></p>

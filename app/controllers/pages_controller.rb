@@ -37,6 +37,12 @@ class PagesController < ApplicationController
   		end 
 	end
 
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+		redirect_to '/'
+	end
+
 	private 
   		def post_params 
     		params.require(:post).permit(:title, :description, :category).merge(user_id: current_user.id)

@@ -1,8 +1,5 @@
 <!-- Home page: Showing all posts in descending order -->
 
-<h1>Home page</h1>
-<hr>
-
 <% @posts.each do |p| %>
 	<a href="/post/<%= p.id %>"><H2><%= p.title %></H2></a>
 	<p>Category: <%= p.category %></p>
