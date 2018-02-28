@@ -59,6 +59,21 @@ body {
     padding-top: 10px;
 }
 
+.home-post, .show-post {
+    width: 100%;
+    border-bottom: 2px solid #ffcc33
+}
+
+.home-post .container, .show-post .container {
+    text-align: left;
+    width: 40%;
+    min-width: 400px;
+}
+
+.navbar.navbar-default {
+    margin-bottom: 0px;
+}
+
 hr {
     border-top: 2px solid #ffcc33;
     display: block;

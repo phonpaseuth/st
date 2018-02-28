@@ -1,13 +1,13 @@
 <!-- Home page: Showing all posts in descending order -->
-
-<h1>Home page</h1>
-<hr>
-
 <% @posts.each do |p| %>
-	<a href="/post/<%= p.id %>"><H2><%= p.title %></H2></a>
-	<p>Category: <%= p.category %></p>
-	<p>Created: <%= time_ago_in_words(p.created_at) %> ago</p>
-	<p>By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></p></a>
-	<p><%= p.description %></p>
-	<hr>
+	<div class="home-post">
+		<div class="container">
+			<a href="/post/<%= p.id %>"><H2><%= p.title %></H2></a>
+			<p>Category: <%= p.category %></p>
+			<p>Created: <%= time_ago_in_words(p.created_at) %> ago</p>
+			<p>By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></p></a>
+			<p><%= p.description %></p>
+		</div>
+	</div>
+	<!--<hr>-->
 <% end %>
