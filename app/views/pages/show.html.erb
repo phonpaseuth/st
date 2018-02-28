@@ -3,7 +3,7 @@
 <H2><%= @post.title %></H2>
 <p><%= @post.category %></p>
 <p><%= time_ago_in_words(@post.created_at) %> ago</p>
-<p>By: <a href="/posts/user/<%= @post.user.id %>"><%= @post.user.first_name %> <%= @post.user.last_name %></p></a>
+<p>By: <a href="/posts/user/<%= @post.user.id %>"><%= @post.user.first_name.capitalize %> <%= @post.user.last_name.capitalize %></p></a>
 <p><%= @post.description %></p>
 
 <% if @post.user.id == @current_user.id %>

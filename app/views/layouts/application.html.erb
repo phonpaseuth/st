@@ -42,7 +42,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/createpost">Create a post</a></li>
           <li><a href="/posts/user/<%= current_user.id %>">My posts</a></li>
-          <li><a href="/user"><%= current_user.first_name %> <%= current_user.last_name %></a></li>
+          <li><a href="/user"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></a></li>
           <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
         </ul>
       </div><!-- /.navbar-collapse -->
