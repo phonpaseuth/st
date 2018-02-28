@@ -1,8 +1,8 @@
 <!-- Show specific post page -->
 
 <H2><%= @post.title %></H2>
-<p><%= @post.category %></p>
-<p><%= time_ago_in_words(@post.created_at) %> ago</p>
+<p>Category: <%= @post.category %></p>
+<p>Created: <%= time_ago_in_words(@post.created_at) %> ago</p>
 <p>By: <a href="/posts/user/<%= @post.user.id %>"><%= @post.user.first_name %> <%= @post.user.last_name %></p></a>
 <p><%= @post.description %></p>
 

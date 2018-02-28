@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # User page
   get '/user' => 'users#info'
   # Show all posts by a specific user
-  get '/posts/user/:id' => 'users#allposts'
+  get '/posts/user/:id' => 'users#allposts', as: :all_posts
   
 
   # Login pages
