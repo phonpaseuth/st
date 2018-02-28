@@ -13,10 +13,23 @@ class PagesController < ApplicationController
 		@new_post = Post.new
 	end
 
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update 
+		@post = Post.find(params[:id]) 
+		if @post.update_attributes(post_params) 
+			redirect_to(:action => 'show', :id => @post.id) 
+		else 
+			render 'edit'
+		end
+	end
+
 	def create 
  		 @new_post = Post.new(post_params) 
   		if @new_post.save
-   			redirect_to '/' 
+   			redirect_to(:action => 'show', :id => @new_post.id) 
   		else 
     		render 'new'
   		end 
@@ -25,6 +38,7 @@ class PagesController < ApplicationController
 	private 
   		def post_params 
     		params.require(:post).permit(:title, :description, :category).merge(user_id: current_user.id)
+
   	end
 
 end
