@@ -16,7 +16,19 @@
 		<p><%= @post.description %></p>
 
     <!-- Add a comment section -->
-    <h2><a href="/post/<%= @post.id %>/create_comment">Create a comment</a></h2>
+    <div class="post">
+      <div class="container">
+        <div class="form">
+        <%= form_for(:comment, url: create_comment_path) do |f| %>  
+          <dl>
+          <dt>Comment</dt>
+          <dd><%= f.text_area :text, :required => 'required' %> </dd>
+          </dl>
+          <%= f.submit "Create", class: "btn-submit" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
     
   	<!--************************** 
       Display comments if exists

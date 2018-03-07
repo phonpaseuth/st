@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
 		@user = User.find_by_email(params[:session][:email])
 		if @user && @user.authenticate(params[:session][:password])
 			session[:user_id] = @user.id
-			redirect_to '/'
+			redirect_to '/', flash: {notice: "Successfully checked in"}
 		else
-			redirect_to '/login'
+			render 'new'
 		end 
 	end
 

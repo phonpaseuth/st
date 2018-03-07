@@ -50,16 +50,10 @@ class PagesController < ApplicationController
 	#------------------#
   	# Comment sections #
   	#------------------#
-	def new_comment
-		@new_comment = Comment.new
-	end
-
 	def create_comment
 		@new_comment = Comment.new(comment_params)
 		if @new_comment.save
-   			redirect_to(:action => 'show_post', :id => @new_comment.post.id) 
-  		else 
-    		render 'comment'
+   			redirect_to(:action => 'show_post', :id => @new_comment.post.id)
   		end 
 	end
 

@@ -9,11 +9,11 @@
       <%= form_for(:post, url: update_post_path) do |f| %>  
       <dl>
           <dt>Title</dt>
-          <dd><%= f.text_field :title, :placeholder => "Example: Selling math books." %> </dd>
+          <dd><%= f.text_field :title, :placeholder => "Example: Selling math books.", :required => 'required' %> </dd>
           <dt>Description</dt>
-          <dd><%= f.text_area :description, :placeholder => "I have a calculus book 4th edition..." %> </dd>
+          <dd><%= f.text_area :description, :placeholder => "I have a calculus book 4th edition...", :required => 'required' %> </dd>
           <dt>Category</dt>
-          <dd><%= f.text_field :category, :placeholder => "Books, cars, misc..." %> </dd>
+          <dd><%= f.text_field :category, :placeholder => "Books, cars, misc...", :required => 'required' %> </dd>
         </dl> 
       <%= f.submit "Update", class: "btn-submit" %>
       <% end %>

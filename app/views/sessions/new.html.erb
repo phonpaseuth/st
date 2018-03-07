@@ -9,9 +9,9 @@
 				<%= form_for(:session, url: login_path) do |f| %> 
 				<dl>
 					<dt>Email</dt>
-					<dd><%= f.email_field :email, :placeholder => "" %></dd>
+					<dd><%= f.email_field :email, :placeholder => "", :required => 'required' %></dd>
 					<dt>Password</dt>
-					<dd><%= f.password_field :password, :placeholder => "" %></dd>
+					<dd><%= f.password_field :password, :placeholder => "", :required => 'required' %></dd>
 				</dl>
 				<%= f.submit "Log In", class: "btn-submit" %>
 			<% end %>

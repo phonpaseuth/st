@@ -7,15 +7,15 @@
       <%= form_for(@user) do |f| %>
         <dl>
           <dt>First Name</dt>
-          <dd><%= f.text_field :first_name, :placeholder => "John" %></dd>
+          <dd><%= f.text_field :first_name, :placeholder => "John", :required => 'required' %></dd>
           <dt>Last Name</dt>
-          <dd><%= f.text_field :last_name, :placeholder => "Doe" %></dd>
+          <dd><%= f.text_field :last_name, :placeholder => "Doe", :required => 'required' %></dd>
           <dt>Phone Number</dt>
-          <dd><%= f.text_field :phone_number, :placeholder => "xxx-xxx-xxxx" %></dd> 
+          <dd><%= f.text_field :phone_number, :placeholder => "xxx-xxx-xxxx", :required => 'required' %></dd> 
           <dt>Email</dt>
-          <dd><%= f.email_field :email, :placeholder => "youremail@address.com" %></dd> 
+          <dd><%= f.email_field :email, :placeholder => "youremail@address.com", :required => 'required' %></dd> 
           <dt>Password</dt>
-          <dd><%= f.password_field :password, :placeholder => "!ts53Cr3t" %></dd>
+          <dd><%= f.password_field :password, :placeholder => "!ts53Cr3t", :required => 'required' %></dd>
         </dl>
         <%= f.submit "Create an account", class: "btn-submit" %> <br/>
       <% end %>

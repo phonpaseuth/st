@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/home' => 'pages#home'
   root 'pages#home'
   # Show specific post
-  get '/post/:id' => 'pages#show_post' 
+  get '/post/:id' => 'pages#show_post', as: :show_post
   # Create new post
   get '/create_post' => 'pages#new_post' 
   post '/create_post' => 'pages#create_post'
@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   #------------------#
   # Comment sections #
   #------------------#
-  get '/post/:id/create_comment' => 'pages#new_comment'
   post '/post/:id/create_comment' => 'pages#create_comment', as: :create_comment
   delete '/delete_comment/:id' => 'pages#delete_comment'
 
