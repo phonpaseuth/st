@@ -1,44 +1,46 @@
 Rails.application.routes.draw do
 
-  # Display all posts
+  #--------------#
+  # Post section #
+  #--------------#
   get '/home' => 'pages#home'
   root 'pages#home'
   # Show specific post
-  get '/post/:id' => 'pages#show'
-   # New post
-  get '/createpost' => 'pages#new'
-  post '/createpost' => 'pages#create'
+  get '/post/:id' => 'pages#show_post' 
+  # Create new post
+  get '/create_post' => 'pages#new_post' 
+  post '/create_post' => 'pages#create_post'
   # Edit post
-  get '/post/:id/edit' => 'pages#edit', as: :edit_post
-  post '/post/:id' => 'pages#update', as: :update_post
+  get '/post/:id/edit' => 'pages#edit_post', as: :edit_post
+  post '/post/:id' => 'pages#update_post', as: :update_post
   # Delete post
-  delete '/post/:id' => 'pages#destroy', as: :delete_post
+  delete '/post/:id' => 'pages#destroy_post', as: :delete_post
 
-
-  # Comment section
+  #------------------#
+  # Comment sections #
+  #------------------#
   get '/post/:id/create_comment' => 'pages#new_comment'
   post '/post/:id/create_comment' => 'pages#create_comment', as: :create_comment
+  delete '/delete_comment/:id' => 'pages#delete_comment'
 
-
-  # Sign up pages
-  get '/signup'  => 'users#new'
+  #---------#
+  # Sign up #
+  #---------#
+  # Signing up
+  get '/signup'  => 'users#new' 
   resources :users
-  # User page
-  get '/user' => 'users#info'
+  # User's page
+  get '/user' => 'users#info' 
   # Show all posts by a specific user
-  get '/posts/user/:id' => 'users#allposts', as: :all_posts
+  get '/posts/user/:id' => 'users#allposts', as: :all_posts 
   
-
-  # Login pages
+  #-------#
+  # Login #
+  #-------#
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-
-
   # Reset pages
-  get 'reset_password' => 'pages#reset_password'
-  # New post
-  get 'createpost' => 'pages#new'
-  post 'createpost' => 'pages#create'
+  get '/reset_password' => 'pages#reset_password' 
 
 end

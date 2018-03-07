@@ -18,14 +18,26 @@
     <!-- Add a comment section -->
     <h2><a href="/post/<%= @post.id %>/create_comment">Create a comment</a></h2>
     
-	<!-- Display comments -->
-    <h1>Comments:</h1>
-	<% @comments.each do |c| %>
-      <p><%= c.text %></p>
-      <p><%= time_ago_in_words(c.created_at) %></p>
-      <p>by: <a href="/posts/user/<%= c.user.id %>"><%= c.user.first_name %> <%= c.user.last_name %></a></p>
-      <hr />
+  	<!--************************** 
+      Display comments if exists
+    ***************************-->
+    <% if @comments.any? %>
+      <h1>Comments:</h1>
+
+      <% @comments.each do |c| %>
+        <p><%= c.text %></p>
+        <p><%= time_ago_in_words(c.created_at) %> ago</p>
+
+        <!-- Only the poster and original poster can see the username and delete the comments -->
+        <% if c.user.id == current_user.id || current_user.id == c.post.user.id %>
+          <p>by: <a href="/posts/user/<%= c.user.id %>">Me</a></p>
+          <%= link_to "Delete comment", { :controller => "pages", :action => "delete_comment", :id => c.id }, method: :delete, data: { confirm: "Confirm deletion?" } %>
+        <% end %>
+
+        <hr />
+      <% end %>
     <% end %>
+    <!--************************-->
 
 	</div>
 </div>

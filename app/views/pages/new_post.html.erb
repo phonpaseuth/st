@@ -6,7 +6,7 @@
 	<div class="post">
 		<div class="container">
 			<div class="form">
-				<%= form_for(:post, url: createpost_path) do |f| %>  
+				<%= form_for(:post, url: create_post_path) do |f| %>  
 					<dl>
 						<dt>Title</dt>
 						<dd><%= f.text_field :title, :placeholder => "Example: Selling math books." %> </dd>
