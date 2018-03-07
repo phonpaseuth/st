@@ -14,3 +14,6 @@ Post.create(title: "Programming Language Design Book for Sale!!!", description: 
 Post.create(title: "Looking for a CLEAN roommate", description: "I'm a a guy. I will be living at the University Squre.", category: "roommate", user_id: 3)
 Post.create(title: "Need a tutor for Calculus 2", description: "I really need help! I will pay you for your time.", category: "tutor", user_id: 1)
 Post.create(title: "Anyone got a spare calculator?", description: "Mine broke down last week. In need of a new one for my math class. Please help! ", category: "etc", user_id: 2)
+
+Comment.create(text: "$25", user_id: 1, post_id: 1)
+Comment.create(text: "$30", user_id: 3, post_id: 1)

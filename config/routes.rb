@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   delete '/post/:id' => 'pages#destroy', as: :delete_post
 
 
+  # Comment section
+  get '/post/:id/create_comment' => 'pages#new_comment'
+  post '/post/:id/create_comment' => 'pages#create_comment', as: :create_comment
+
+
   # Sign up pages
   get '/signup'  => 'users#new'
   resources :users

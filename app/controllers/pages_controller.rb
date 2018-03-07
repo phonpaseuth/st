@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@comments = @post.comments.order(created_at: :desc)
 	end
 
 	def new
@@ -43,10 +44,27 @@ class PagesController < ApplicationController
 		redirect_to '/'
 	end
 
+	# Creating a new comment
+	def new_comment
+		@new_comment = Comment.new
+	end
+
+	def create_comment
+		@new_comment = Comment.new(comment_params)
+		if @new_comment.save
+   			redirect_to(:action => 'show', :id => @new_comment.post.id) 
+  		else 
+    		render 'comment'
+  		end 
+	end
+
+
 	private 
   		def post_params 
     		params.require(:post).permit(:title, :description, :category).merge(user_id: current_user.id)
-
-  	end
-
+    	end
+    	def comment_params
+    		@post = Post.find(params[:id])
+    		params.require(:comment).permit(:text).merge(user_id: current_user.id, post_id: @post.id)
+    	end
 end
