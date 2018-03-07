@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   		@user = User.new(user_params) 
   		if @user.save 
     		session[:user_id] = @user.id 
+        flash[:notice] = "Welcome to StudentsAd, " + @user.first_name.to_str + "!"
     		redirect_to '/'
   		else 
     		redirect_to '/signup' 
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
 	end
 
   # Showing account's info
-  def info
+  def profile
   end
 
   # Show all the pages own by a user

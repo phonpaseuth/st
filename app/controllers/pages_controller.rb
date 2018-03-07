@@ -22,6 +22,7 @@ class PagesController < ApplicationController
 	def create_post
  		@new_post = Post.new(post_params) 
   		if @new_post.save
+  			flash[:notice] = "Post created."
    			redirect_to(:action => 'show_post', :id => @new_post.id) 
   		else 
     		render 'new'
@@ -34,7 +35,8 @@ class PagesController < ApplicationController
 
 	def update_post
 		@post = Post.find(params[:id]) 
-		if @post.update_attributes(post_params) 
+		if @post.update_attributes(post_params)
+			flash[:notice] = "Post updated."
 			redirect_to(:action => 'show_post', :id => @post.id) 
 		else 
 			render 'edit'
@@ -44,6 +46,7 @@ class PagesController < ApplicationController
 	def destroy_post
 		@post = Post.find(params[:id])
 		@post.destroy
+		flash[:notice] = "Post deleted."
 		redirect_to '/'
 	end
 
@@ -53,6 +56,7 @@ class PagesController < ApplicationController
 	def create_comment
 		@new_comment = Comment.new(comment_params)
 		if @new_comment.save
+			flash[:notice] = "Comment posted."
    			redirect_to(:action => 'show_post', :id => @new_comment.post.id)
   		end 
 	end
@@ -60,6 +64,7 @@ class PagesController < ApplicationController
 	def delete_comment
 		@comment = Comment.find(params[:id])
 		@comment.destroy
+		flash[:notice] = "Comment deleted."
 		redirect_to(:action => 'show_post', :id => @comment.post.id)
 	end
 

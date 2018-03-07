@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/home' => 'pages#home'
   root 'pages#home'
   # Show specific post
-  get '/post/:id' => 'pages#show_post', as: :show_post
+  get '/post/:id' => 'pages#show_post'
   # Create new post
   get '/create_post' => 'pages#new_post' 
   post '/create_post' => 'pages#create_post'
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get '/signup'  => 'users#new' 
   resources :users
   # User's page
-  get '/user' => 'users#info' 
+  get '/profile' => 'users#profile' 
   # Show all posts by a specific user
   get '/posts/user/:id' => 'users#allposts', as: :all_posts 
   

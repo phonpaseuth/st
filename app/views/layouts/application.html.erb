@@ -12,6 +12,10 @@
     <%= javascript_include_tag 'application.js', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <% if current_user %>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -42,7 +46,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/create_post">Create a post</a></li>
           <li><a href="/posts/user/<%= current_user.id %>">My posts</a></li>
-          <li><a href="/user"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></a></li>
+          <li><a href="/profile"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></a></li>
           <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -54,3 +58,14 @@
     <%= yield %>
   </body>
 </html>
+
+<!-- Alert message fade out and slideup -->
+<script type="text/javascript">
+  window.setTimeout(function() 
+  {
+    $(".notice").fadeTo(500, 0).slideUp(500, function()
+    {
+      $(this).remove();
+    });
+  }, 5000);
+</script>
