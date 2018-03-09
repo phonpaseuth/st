@@ -5,9 +5,14 @@ DarkGray: #dddddd
 Light Gray: #f2f2f2
 */
 body {
-    background-color: #dddddd;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif/**/
+}
+
+.notice {
+    background-color: #f2f2f2;
+    color: #black;
+    margin-bottom: 0;
 }
 
 .container-fluid {
