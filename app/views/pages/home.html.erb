@@ -9,5 +9,6 @@
 			<p><%= p.description %></p>
 		</div>
 	</div>
-	<!--<hr>-->
 <% end %>
+
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>

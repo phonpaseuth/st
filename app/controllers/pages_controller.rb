@@ -1,11 +1,12 @@
-class PagesController < ApplicationController
+ class PagesController < ApplicationController
 	before_action :require_user
 	
 	#--------------#
   	# Post section #
   	#--------------#
 	def home
-		@posts = Post.order(created_at: :desc).all
+		# @posts = Post.order(created_at: :desc).all
+		@posts = Post.order(created_at: :desc).paginate(:page => params[:page], :per_page => 3)
 	end
 	
 	def reset_password; end;
