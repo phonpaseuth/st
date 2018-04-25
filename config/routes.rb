@@ -17,6 +17,13 @@ Rails.application.routes.draw do
   delete '/post/:id' => 'pages#destroy_post', as: :delete_post
 
   #------------------#
+  # Category Section #
+  #------------------#
+  get '/categories' => 'categories#home'
+  # Show all posts that belong to a category
+  get '/category/:id' => 'categories#show_category'
+
+  #------------------#
   # Comment sections #
   #------------------#
   post '/post/:id/create_comment' => 'pages#create_comment', as: :create_comment

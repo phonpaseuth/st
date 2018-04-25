@@ -1,9 +1,10 @@
-<!-- Home page: Showing all posts in descending order -->
+<h1>Category: <%= @category.category %></h1>
+
 <% @posts.each do |p| %>
 	<div class="home-post">
 		<div class="container">
 			<a href="/post/<%= p.id %>"><H2><%= p.title %></H2></a>
-			<p>Category: <a href='/category/<%= p.category.id %>'><%= p.category.category %></a>, By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></p></a>
+			<p>By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></p></a>
 			<p>Updated: <%= time_ago_in_words(p.updated_at) %> ago, Created on: <%= time_tag(p.created_at) %></p>
 		</div>
 	</div>

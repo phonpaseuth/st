@@ -10,10 +10,29 @@ User.create(first_name: 'Myron', last_name: 'Garner', phone_number: '471-507-841
 User.create(first_name: 'Pon', last_name: 'Kham', phone_number: '817-773-0493', email: 'phonpaseuth@gmail.com', password_digest: 'admin123')
 User.create(first_name: 'Jordan', last_name: 'Bailey', phone_number: '247-839-1928', email: 'jordan@gmail.com', password_digest: 'admin123')
 
-Post.create(title: "Programming Language Design Book for Sale!!!", description: "$50 or best offer!", category: "book", user_id: 2)
-Post.create(title: "Looking for a CLEAN roommate", description: "I'm a a guy. I will be living at the University Squre.", category: "roommate", user_id: 3)
-Post.create(title: "Need a tutor for Calculus 2", description: "I really need help! I will pay you for your time.", category: "tutor", user_id: 1)
-Post.create(title: "Anyone got a spare calculator?", description: "Mine broke down last week. In need of a new one for my math class. Please help! ", category: "etc", user_id: 2)
+Post.create(title: "Programming Language Design Book for Sale!!!",
+	description: "$50 or best offer!",
+	user_id: 2, category_id: 2)
+Post.create(title: "Looking for a CLEAN roommate",
+	description: "I'm a a guy. I will be living at the University Squre.",
+	user_id: 3, category_id: 9)
+Post.create(title: "Need a Calculus 2 textbook!",
+	description: "I really need help! I will pay you for your time.",
+	user_id: 1, category_id: 2)
+Post.create(title: "Need rommate for Brookside this summer!",
+	description: "Mine broke down last week. In need of a new one for my math class. Please help! ",
+	user_id: 2, category_id: 9)
 
 Comment.create(text: "$25", user_id: 1, post_id: 1)
 Comment.create(text: "$30", user_id: 3, post_id: 1)
+
+Category.create(category: "Advice")
+Category.create(category: "Books")
+Category.create(category: "Cars")
+Category.create(category: "Clothes")
+Category.create(category: "Help")
+Category.create(category: "Friends")
+Category.create(category: "Mentees/Mentors")
+Category.create(category: "Relationship")
+Category.create(category: "Roommates")
+Category.create(category: "Others")

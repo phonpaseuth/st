@@ -4,57 +4,87 @@
   </style>
   <head>
     <title>StudentsAd</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap 4.1 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/stylesheets/application.css" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application.js', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
 <% if current_user %>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">StudentsAd</a>
-      </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="/assets/sa-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      StudentsAd
+    </a>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="/">Home<span class="sr-only">(current)</span></a></li>
-          <li><a href="/">Categories</a></li>
-          <li><a href="/">About</a></li>
-        </ul><!--
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!-- Home -->
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+  
+        <!-- Drop Down Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/category/1">Advice</a>
+            <a class="dropdown-item" href="/category/2">Books</a>
+            <a class="dropdown-item" href="/category/3">Cars</a>
+            <a class="dropdown-item" href="/category/4">Clothes</a>
+            <a class="dropdown-item" href="/category/5">Help</a>
+            <a class="dropdown-item" href="/category/6">Friends</a>
+            <a class="dropdown-item" href="/category/7">Mentees/Mentors</a>
+            <a class="dropdown-item" href="/category/8">Relationship</a>
+            <a class="dropdown-item" href="/category/9">Roommates</a>
+            <a class="dropdown-item" href="/category/10">Others</a>
+          <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/categories">All Categories</a>
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>-->
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="/create_post">Create a post</a></li>
-          <li><a href="/posts/user/<%= current_user.id %>">My posts</a></li>
-          <li><a href="/profile"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></a></li>
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" href="/create_post">New Post</a>
+        </li>
+
+         <li class="nav-item">
+          <a class="nav-link" href="/posts/user/<%= current_user.id %>">My Posts</a>
+        </li>
+
+
+         <li class="nav-item">
+          <a class="nav-link" href="/profile"><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></a>
+        </li>
+
+        <li><a class="nav-link" <%= link_to "Log out", logout_path, method: "delete" %></a></li> 
+      </ul>
+      
+    </div>
   </nav>
 <% end %>
 
   <body>
+  </br>
     <%= yield %>
   </body>
 </html>

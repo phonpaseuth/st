@@ -70,8 +70,8 @@
 	end
 
 	private 
-  		def post_params 
-    		params.require(:post).permit(:title, :description, :category).merge(user_id: current_user.id)
+  		def post_params
+    		params.require(:post).permit(:title, :description, :category_id).merge(user_id: current_user.id)
     	end
     	def comment_params
     		@post = Post.find(params[:id])

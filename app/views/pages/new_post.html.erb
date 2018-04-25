@@ -13,7 +13,22 @@
 						<dt>Description</dt>
 						<dd><%= f.text_area :description, :placeholder => "I have a calculus book 4th edition...", :required => 'required' %> </dd>
 						<dt>Category</dt>
-						<dd><%= f.text_field :category, :placeholder => "Books, cars, misc...", :required => 'required' %> </dd>
+						<dd>
+							<%= f.select(:category_id, options_for_select(
+								[
+									['Advice', 1],
+                  ['Books', 2],
+                  ['Cars', 3],
+                  ['Clothes', 4],
+                  ['Help',5],
+                  ['Friends', 6],
+                  ['Mentees/Mentors', 7],
+                  ['Relationship', 8],
+                  ['Roommates', 9],
+                  ['Others', 10],
+								]
+							)) %>
+            </dd>
 					</dl>
 					<%= f.submit "Create", class: "btn-submit" %>
 				<% end %>

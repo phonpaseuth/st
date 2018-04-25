@@ -2,7 +2,7 @@
 <div class="show-post">
 	<div class="container">
 		<H2><%= @post.title %></H2>
-		<p>Category: <%= @post.category %></p>
+		<p>Category: <a href='/category/<%= @post.category.id %>'><%= @post.category.category %></p></a>
 		<p>Updated: <%= time_ago_in_words(@post.updated_at) %> ago, Created on: <%= time_tag(@post.created_at) %></p>
 		<p>By: <a href="/posts/user/<%= @post.user.id %>"><%= @post.user.first_name.capitalize %> <%= @post.user.last_name.capitalize %></p></a>
 
