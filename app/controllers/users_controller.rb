@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   # Show all the pages own by a user
   def allposts
     @user = User.find(params[:id])
-    @posts = @user.posts.order(created_at: :desc)
+    @posts = User.find(params[:id]).posts.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 5)
   end
 
 	private

@@ -3,7 +3,7 @@
 	<div class="container">
 		<H2><%= @post.title %></H2>
 		<p>Category: <%= @post.category %></p>
-		<p>Created: <%= time_ago_in_words(@post.created_at) %> ago</p>
+		<p>Updated: <%= time_ago_in_words(@post.updated_at) %> ago, Created on: <%= time_tag(@post.created_at) %></p>
 		<p>By: <a href="/posts/user/<%= @post.user.id %>"><%= @post.user.first_name.capitalize %> <%= @post.user.last_name.capitalize %></p></a>
 
 		<!-- Only the owner of the post can edit and delete the post -->
@@ -53,6 +53,7 @@
         <hr />
       <% end %>
     <% end %>
-
 	</div>
 </div>
+
+<%= will_paginate @comments, renderer: BootstrapPagination::Rails %>

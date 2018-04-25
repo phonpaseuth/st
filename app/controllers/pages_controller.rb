@@ -6,14 +6,14 @@
   	#--------------#
 	def home
 		# @posts = Post.order(created_at: :desc).all
-		@posts = Post.order(created_at: :desc).paginate(:page => params[:page], :per_page => 3)
+		@posts = Post.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 5)
 	end
 	
 	def reset_password; end;
 
 	def show_post
 		@post = Post.find(params[:id])
-		@comments = @post.comments.order(created_at: :desc)
+		@comments = Post.find(params[:id]).comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def new_post
@@ -75,6 +75,7 @@
     	end
     	def comment_params
     		@post = Post.find(params[:id])
+    		@post.touch(:updated_at)
     		params.require(:comment).permit(:text).merge(user_id: current_user.id, post_id: @post.id)
     	end
 end

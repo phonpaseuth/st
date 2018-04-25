@@ -3,10 +3,8 @@
 	<div class="home-post">
 		<div class="container">
 			<a href="/post/<%= p.id %>"><H2><%= p.title %></H2></a>
-			<p>Category: <%= p.category %></p>
-			<p>Created: <%= time_ago_in_words(p.created_at) %> ago</p>
-			<p>By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></p></a>
-			<p><%= p.description %></p>
+			<p>Category: <%= p.category %>, By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></p></a>
+			<p>Updated: <%= time_ago_in_words(p.updated_at) %> ago, Created on: <%= time_tag(p.created_at) %></p>
 		</div>
 	</div>
 <% end %>
