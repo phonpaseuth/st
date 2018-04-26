@@ -1,0 +1,60 @@
+.grid {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  height: 100vh;
+}
+
+.left-grid {
+  background: linear-gradient(#154444, #385e5a);
+  height: auto;
+  width: auto;
+}
+
+.right-grid {
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.description {
+  margin-top: 20%;
+  margin-left: 20%;
+}
+
+.description h2 {
+  color: white;
+  font-size: 40px;
+}
+
+.description h3 {
+  color: white;
+  font-size: 35px;
+  margin: 35px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Quicksand', sans-serif;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+h3 {
+  font-weight: lighter;
+}
+
+h5, h6 {
+  color: #191919;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: #154444;
+    border-color: #154444;
+}

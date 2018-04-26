@@ -6,7 +6,7 @@
   	#--------------#
 	def home
 		# @posts = Post.order(created_at: :desc).all
-		@posts = Post.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 2)
+		@posts = Post.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 5)
 	end
 	
 	def reset_password; end;

@@ -1,23 +1,44 @@
-<!-- Login page -->
+<%= stylesheet_link_tag "sessions.css" %>
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+
 <% if current_user %>
-	<meta http-equiv="refresh" content="0; URL='home" />
+  <meta http-equiv="refresh" content="0; URL='home" />
 <% else %>
-	<div class="login">
-		<h1>Login</h1>
-	  <div class="container">
-	    <div class="form">
-				<%= form_for(:session, url: login_path) do |f| %> 
-				<dl>
-					<dt>Email</dt>
-					<dd><%= f.email_field :email, :placeholder => "", :required => 'required' %></dd>
-					<dt>Password</dt>
-					<dd><%= f.password_field :password, :placeholder => "", :required => 'required' %></dd>
-				</dl>
-				<%= f.submit "Log In", class: "btn-submit" %>
-			<% end %>
-	    </div>
-			<p>New to StudentTrades?&nbsp;<%= link_to "Sign up!", 'signup' %></a></p>
-			<p><%= link_to 'Forgot Password?', 'reset_password' %></a></p>
-	  </div>
-	</div>
+  <div class="grid">
+
+    <div class="left-grid">
+     
+      <div class="description">
+        <h2>Welcome to StudentsAd!</h2><br />
+        <h3><img class="logo" src="/assets/advertiseLogo.png" /> Advertise.</h3>
+        <h3><img class="logo" src="/assets/peopleLogo.png" /> Meet new people.</h3>
+        <h3><img class="logo" src="/assets/plusLogo.png" /> And much more!</h3>
+      </div>
+    </div>
+
+    <div class="right-grid">
+      <div class="form">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <img src="/assets/saLogoGreen.png" width="75x" height="75px" />
+          <h2>See what's happening<br>around your campus</h2>
+          <br />
+
+          <h4>Email</h4>
+          <%= f.email_field :email, :required => 'required' %>
+          <br /><br />
+
+          <h4>Password</h4>
+          <%= f.password_field :password, :required => 'required' %>
+          <h6><%= link_to 'Forgot Password?', 'reset_password' %></a></h6>
+
+          <%= f.submit "Log In", class: "btn btn-dark" %>
+          <br /><br />
+            
+        <% end %>
+      </div>
+      
+      <h6>New to StudentsAd?&nbsp;<%= link_to "Sign up now!", 'signup' %></a></h6>
+
+    </div>
+  </div>
 <% end %>
