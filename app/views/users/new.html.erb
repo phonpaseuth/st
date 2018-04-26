@@ -3,51 +3,48 @@
 
 <div class="grid">
 
-    <div class="left-grid">
-        <div class="description">
-            <img src="/assets/saLogoWhite.png" width="200px" height="200px" />
-            <br /><br />
-            <h3>Join StudentAd today!</h3>
-        </div>
+  <div class="left-grid">
+    <div class="description">
+    <img src="/assets/saLogoWhite.png" width="200px" height="200px" />
+    <br /><br />
+    <h3>Join StudentAd today!</h3>
     </div>
+  </div>
 
-    <div class="right-grid">
-        <div class="signup">
-            <div class="form">
-              <%= form_for(@user) do |f| %>
+  <div class="right-grid">
+    <div class="signup">
+      <div class="form">
+      <%= form_for(@user) do |f| %>
 
-                <h2>Signup</h2>
-                <h6>Already have an account?&nbsp;<%= link_to "Login", 'login' %></a></h6>
-                <br />
+      <h2>Signup</h2>
+      <h6>Already have an account?&nbsp;<%= link_to "Login", 'login' %></a></h6>
+      <br />
 
+      <h4>First Name</h4>
+      <%= f.text_field :first_name, :required => 'required' %>
+      <br /><br />
 
-                <h4>First Name</h4>
-                <%= f.text_field :first_name, :required => 'required' %>
-                <br /><br />
+      <h4>Last Name</h4>
+      <%= f.text_field :last_name, :required => 'required' %>
+      <br /><br />
 
-                <h4>Last Name</h4>
-                <%= f.text_field :last_name, :required => 'required' %>
-                <br /><br />
-                
-                <h4>Phone Number</h4>
-                <%= f.text_field :phone_number, :required => 'required' %>
-                <br /><br />
+      <h4>Phone Number</h4>
+      <%= f.text_field :phone_number, :required => 'required' %>
+      <br /><br />
 
-                <h4>Email</h4>
-                <%= f.email_field :email, :required => 'required' %>
-                <br /><br />
+      <h4>Email</h4>
+      <%= f.email_field :email, :required => 'required' %>
+      <br /><br />
 
-                <h4>Password</h4>
-                <%= f.password_field :password, :required => 'required' %>
-                <br /><br />
-                
-                <%= f.submit "Create an account", class: "btn btn-light" %> <br/>
-                <br /><br />
+      <h4>Password</h4>
+      <%= f.password_field :password, :required => 'required' %>
+      <br /><br />
 
-              <% end %>
-              
-          </div>
-        </div>
+      <%= f.submit "Create an account", class: "btn btn-light" %> <br/>
+      <br /><br />
+
+      <% end %>
+      </div>
     </div>
-
+  </div>
 </div>
