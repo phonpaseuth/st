@@ -7,7 +7,6 @@
   <div class="grid">
 
     <div class="left-grid">
-     
       <div class="description">
         <h2>Welcome to StudentsAd!</h2><br />
         <h3><img class="logo" src="/assets/advertiseLogo.png" /> Advertise.</h3>
@@ -19,8 +18,10 @@
     <div class="right-grid">
       <div class="form">
         <%= form_for(:session, url: login_path) do |f| %>
+          
           <img src="/assets/saLogoGreen.png" width="75x" height="75px" />
           <h2>See what's happening<br>around your campus</h2>
+          <h6>New to StudentsAd?&nbsp;<%= link_to "Sign up now!", 'signup' %></a></h6>
           <br />
 
           <h4>Email</h4>
@@ -31,13 +32,13 @@
           <%= f.password_field :password, :required => 'required' %>
           <h6><%= link_to 'Forgot Password?', 'reset_password' %></a></h6>
 
-          <%= f.submit "Log In", class: "btn btn-dark" %>
+          <%= f.submit "Log In", class: "btn btn-light" %>
           <br /><br />
             
         <% end %>
       </div>
       
-      <h6>New to StudentsAd?&nbsp;<%= link_to "Sign up now!", 'signup' %></a></h6>
+      
 
     </div>
   </div>

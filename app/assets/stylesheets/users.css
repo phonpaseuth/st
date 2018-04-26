@@ -1,3 +1,33 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.grid {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  height: 100vh;
+}
+
+.left-grid {
+  background: linear-gradient(#154444, #385e5a);
+  height: auto;
+  width: auto;
+}
+
+.right-grid {
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.logo {
+	width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.description {
+  margin-top: 25%;
+  text-align: center;
+}
+
+.description h3 {
+  color: white;
+  font-size: 35px;
+  margin: 35px;
+}
