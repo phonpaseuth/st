@@ -15,8 +15,9 @@
 
   <div class="mid-grid">
     <br />
-    <h5>Home</h5>
+    <h5 style="font-weight: bold">Home</h5>
     <hr />
+
     <% @posts.each do |p| %>
       <a href="/post/<%= p.id %>"><h3><%= p.title %></h3></a>
       <h5>Category: <a href='/category/<%= p.category.id %>'><%= p.category.category %></a>, By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></h5></a>
@@ -29,7 +30,7 @@
 
   <div class="right-grid">
     <br />
-    <h5>Categories</h5>
+    <h5 style="font-weight: bold">Categories</h5>
     <hr />
 
     <h5><a href="/category/1">Advice</a></h5>
