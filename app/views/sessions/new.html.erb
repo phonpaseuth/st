@@ -8,7 +8,7 @@
 
     <div class="left-grid">
       <div class="description">
-        <h2>Welcome to StudentsAd!</h2><br />
+        <h2>Welcome to StudentsAd.</h2><br />
         <h3><img class="logo" src="/assets/advertiseLogo.png" /> Advertise.</h3>
         <h3><img class="logo" src="/assets/peopleLogo.png" /> Meet new people.</h3>
         <h3><img class="logo" src="/assets/plusLogo.png" /> And much more!</h3>
@@ -31,8 +31,9 @@
           <h4>Password</h4>
           <%= f.password_field :password, :required => 'required' %>
           <h6><%= link_to 'Forgot Password?', 'reset_password' %></a></h6>
+          <br />
 
-          <%= f.submit "Log In", class: "btn btn-light" %>
+          <%= f.submit "Log In", class: "btn btn-dark" %>
           <br /><br />
             
         <% end %>

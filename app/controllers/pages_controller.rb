@@ -5,7 +5,7 @@
   	# Post section #
   	#--------------#
 	def home
-		# @posts = Post.order(created_at: :desc).all
+		@user = @current_user
 		@posts = Post.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 5)
 	end
 	

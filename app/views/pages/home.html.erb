@@ -1,12 +1,47 @@
-<!-- Home page: Showing all posts in descending order -->
-<% @posts.each do |p| %>
-	<div class="home-post">
-		<div class="container">
-			<a href="/post/<%= p.id %>"><H2><%= p.title %></H2></a>
-			<p>Category: <a href='/category/<%= p.category.id %>'><%= p.category.category %></a>, By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></p></a>
-			<p>Updated: <%= time_ago_in_words(p.updated_at) %> ago, Created on: <%= time_tag(p.created_at) %></p>
-		</div>
-	</div>
-<% end %>
+<%= stylesheet_link_tag "pages.css" %>
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
-<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+<div class="grid">
+  <div class="left-grid">
+    <h3><a href="/" class="home-link"><img src="/assets/saLogoGreen.png" width="50" height="50px" /> StudentsAd</a></h3>
+    <br /><br />
+    <h2 style="font-weight: bold; color: #154444"><%= @user.first_name %> <%= @user.last_name %></h2>
+    <h5><%= @user.phone_number %></h5>
+    <h5><%= @user.email %></h5>
+    <br />
+    <h5><a href="/create_post" class="btn btn-dark"><img class="logo" src="/assets/plus.png" /> New</a></h5>
+    <h5><a class="btn btn-danger" rel="nofollow" data-method="delete" href="/logout"><img class="logo" src="/assets/logout.png" /> Log out</a></h5>
+  </div>
+
+  <div class="mid-grid">
+    <br />
+    <h5>Home</h5>
+    <hr />
+    <% @posts.each do |p| %>
+      <a href="/post/<%= p.id %>"><h3><%= p.title %></h3></a>
+      <h5>Category: <a href='/category/<%= p.category.id %>'><%= p.category.category %></a>, By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></h5></a>
+      <h6>Updated: <%= time_ago_in_words(p.updated_at) %> ago, Created on: <%= time_tag(p.created_at) %></h6>
+      <hr />
+    <% end %>
+
+    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+  </div>
+
+  <div class="right-grid">
+    <br />
+    <h5>Categories</h5>
+    <hr />
+
+    <h5><a href="/category/1">Advice</a></h5>
+    <h5><a href="/category/2">Books</a></h5>
+    <h5><a href="/category/3">Cars</a></h5>
+    <h5><a href="/category/4">Clothes</a></h5>
+    <h5><a href="/category/5">Help</a></h5>
+    <h5><a href="/category/6">Friends</a></h5>
+    <h5><a href="/category/7">Mentees/Mentors</a></h5>
+    <h5><a href="/category/8">Relationship</a></h5>
+    <h5><a href="/category/9">Roommates</a></h5>
+    <h5><a href="/category/10">Others</a></h5>
+  </div>
+
+<div>
