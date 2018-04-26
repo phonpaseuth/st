@@ -1,38 +1,77 @@
-<!-- Create a post page -->
+<%= stylesheet_link_tag "pages.css" %>
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
-<h1>Create a post</h1>
-<hr>
+<div class="grid">
+  <div class="left-grid">
+    <h3><a href="/" class="home-link"><img src="/assets/saLogoGreen.png" width="50" height="50px" /> StudentsAd</a></h3>
+    <br /><br />
+    <h2 style="font-weight: bold; color: #154444"><%= @user.first_name %> <%= @user.last_name %></h2>
+    <h5><%= @user.phone_number %></h5>
+    <h5><%= @user.email %></h5>
+    <br />
+    <hr align="left" width="50%"/>
+    <h4 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/plusGreen.png" /> My posts</a></h4>
+    <br /><hr align="left" width="50%"/>
 
-	<div class="post">
-		<div class="container">
-			<div class="form">
-				<%= form_for(:post, url: create_post_path) do |f| %>  
-					<dl>
-						<dt>Title</dt>
-						<dd><%= f.text_field :title, :placeholder => "Example: Selling math books.", :required => 'required' %> </dd>
-						<dt>Description</dt>
-						<dd><%= f.text_area :description, :placeholder => "I have a calculus book 4th edition...", :required => 'required' %> </dd>
-						<dt>Category</dt>
-						<dd>
-							<%= f.select(:category_id, options_for_select(
-								[
-									['Advice', 1],
-                  ['Books', 2],
-                  ['Cars', 3],
-                  ['Clothes', 4],
-                  ['Help',5],
-                  ['Friends', 6],
-                  ['Mentees/Mentors', 7],
-                  ['Relationship', 8],
-                  ['Roommates', 9],
-                  ['Others', 10],
-								]
-							)) %>
-            </dd>
-					</dl>
-					<%= f.submit "Create", class: "btn-submit" %>
-				<% end %>
+    <h4 style="font-weight: bold"><a class="home-link" rel="nofollow" data-method="delete" href="/logout"><img class="logo" src="/assets/logoutRed.png" /> Log out</a></h4>
+  </div>
 
-			</div>
-		</div>
-	</div>
+  <div class="mid-grid">
+    <br />
+    <h5 style="font-weight: bold"><a href="/">Home</a> / New</h5>
+    <hr />
+
+    <%= form_for(:post, url: create_post_path) do |f| %>  
+      <h4>Title</h4>
+      <h5><textarea required="required" name="post[title]" id="post_title" maxlength="100" style="width: 100%"></textarea></h5>
+
+
+      <h4>Description</h4>
+      <h5><textarea required="required" name="post[description]" id="post_description" style="width: 100%; height: 250px"></textarea></h5>
+
+      <h4>Category</h4>
+      <%= f.select(:category_id, options_for_select(
+        [
+          ['Advice', 1],
+          ['Books', 2],
+          ['Cars', 3],
+          ['Clothes', 4],
+          ['Help',5],
+          ['Friends', 6],
+          ['Mentees/Mentors', 7],
+          ['Relationship', 8],
+          ['Roommates', 9],
+          ['Others', 10],
+        ]
+      )) %>
+      <br /><br />
+
+      <%= f.submit "Create", class: "btn btn-dark" %>
+      
+      <% end %>
+  </div>
+
+  <div class="right-grid">
+    <br />
+    <h5 style="font-weight: bold">Categories</h5>
+    <hr />
+
+
+    <h5><a href="/category/1">Advice</a></h5>
+    <h5><a href="/category/2">Books</a></h5>
+    <h5><a href="/category/3">Cars</a></h5>
+    <h5><a href="/category/4">Clothes</a></h5>
+    <h5><a href="/category/5">Help</a></h5>
+    <h5><a href="/category/6">Friends</a></h5>
+    <h5><a href="/category/7">Mentees/Mentors</a></h5>
+    <h5><a href="/category/8">Relationship</a></h5>
+    <h5><a href="/category/9">Roommates</a></h5>
+    <h5><a href="/category/10">Others</a></h5>
+    <hr />
+    <h5><a href="/">Home</a></h5>
+  </div>
+
+</div>
+
+
+

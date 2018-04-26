@@ -17,6 +17,7 @@
 	end
 
 	def new_post
+		@user = @current_user
 		@new_post = Post.new
 	end
 

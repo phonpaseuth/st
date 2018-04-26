@@ -10,8 +10,11 @@
     <h5><%= @user.phone_number %></h5>
     <h5><%= @user.email %></h5>
     <br />
-    <h5><a href="/create_post" class="btn btn-dark"><img class="logo" src="/assets/plus.png" /> New</a></h5>
-    <h5><a class="btn btn-danger" rel="nofollow" data-method="delete" href="/logout"><img class="logo" src="/assets/logout.png" /> Log out</a></h5>
+    <hr align="left" width="50%"/>
+    <h4 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/plusGreen.png" /> New</a></h4>
+    <br /><hr align="left" width="50%"/>
+
+    <h4 style="font-weight: bold"><a class="home-link" rel="nofollow" data-method="delete" href="/logout"><img class="logo" src="/assets/logoutRed.png" /> Log out</a></h4>
   </div>
 
   <div class="mid-grid">
@@ -30,7 +33,7 @@
   </div>
 
   <div class="right-grid">
-     <br />
+    <br />
     <h5 style="font-weight: bold">Categories</h5>
     <hr />
 
@@ -44,5 +47,7 @@
     <h5><a href="/category/8">Relationship</a></h5>
     <h5><a href="/category/9">Roommates</a></h5>
     <h5><a href="/category/10">Others</a></h5>
+    <hr />
+    <h5><a href="/">Home</a></h5>
   </div>
 </div>
