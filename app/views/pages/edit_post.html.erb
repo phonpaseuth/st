@@ -21,16 +21,15 @@
 
   <div class="mid-grid">
     <br />
-    <h5 style="font-weight: bold"><a href="/">Home</a> / New</h5>
+    <h5 style="font-weight: bold"><a href="/">Home</a> / Update</h5>
     <hr />
 
-    <%= form_for(:post, url: create_post_path) do |f| %>  
+    <%= form_for(:post, url: update_post_path) do |f| %>
       <h4>Title</h4>
-      <h5><textarea required="required" name="post[title]" id="post_title" maxlength="100" style="width: 100%"></textarea></h5>
-
+      <h5><input required="required" type="text" value="<%= @post.title %>" name="post[title]" id="post_title" maxlength="100" style="width: 100%"></h5>
 
       <h4>Description</h4>
-      <h5><textarea required="required" name="post[description]" id="post_description" style="width: 100%; height: 250px"></textarea></h5>
+      <h5><textarea required="required" name="post[description]" id="post_description" style="width: 100%; height: 250px"><%= @post.description %></textarea></h5>
 
       <h4>Category</h4>
       <h5><%= f.select(:category_id, options_for_select(
@@ -47,64 +46,14 @@
           ['Others', 10],
         ]
       )) %></h5>
-      <br /><br />
+      <br />
 
-      <%= f.submit "Create", class: "btn btn-dark" %>
-      
-      <% end %>
+      <h5><%= f.submit "Update", class: "btn btn-dark" %></h5>
+
+    <% end %>
   </div>
 
   <div class="right-grid">
-    <br />
-    <h5 style="font-weight: bold">Categories</h5>
-    <hr />
-
-
-    <h5><a href="/category/1">Advice</a></h5>
-    <h5><a href="/category/2">Books</a></h5>
-    <h5><a href="/category/3">Cars</a></h5>
-    <h5><a href="/category/4">Clothes</a></h5>
-    <h5><a href="/category/5">Help</a></h5>
-    <h5><a href="/category/6">Friends</a></h5>
-    <h5><a href="/category/7">Mentees/Mentors</a></h5>
-    <h5><a href="/category/8">Relationship</a></h5>
-    <h5><a href="/category/9">Roommates</a></h5>
-    <h5><a href="/category/10">Others</a></h5>
-    <hr />
-    <h5><a href="/">Home</a></h5>
   </div>
 
-</div>
-
-<div class="update">
-<div class="container">
-<div class="form">
-<%= form_for(:post, url: update_post_path) do |f| %>  
-<dl>
-<dt>Title</dt>
-<dd><%= f.text_field :title, :placeholder => "Example: Selling math books.", :required => 'required' %> </dd>
-<dt>Description</dt>
-<dd><%= f.text_area :description, :placeholder => "I have a calculus book 4th edition...", :required => 'required' %> </dd>
-<dt>Category</dt>
-<dd>
-<%= f.select(:category_id, options_for_select(
-[
-['Advice', 1],
-['Books', 2],
-['Cars', 3],
-['Clothes', 4],
-['Help',5],
-['Friends', 6],
-['Mentees/Mentors', 7],
-['Relationship', 8],
-['Roommates', 9],
-['Others', 10],
-]
-)) %>
-</dd>
-</dl> 
-<%= f.submit "Update", class: "btn-submit" %>
-<% end %>
-</div>
-</div>
 </div>
