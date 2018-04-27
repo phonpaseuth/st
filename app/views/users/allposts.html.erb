@@ -1,24 +1,48 @@
-<!-- Showing all posts own by a user -->
-<!--<div class="allposts">-->
-	<div class"contact">
-		<div class="container">
-			<h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Information</h1>
-			<h4>Contact Info</h4>
-			<p><small>Phone number: <%= @user.phone_number %></small></p>
-			<p><small>Email: <%= @user.email %></small></p>
-		</div>
-	</div>
+<%= stylesheet_link_tag "pages.css" %>
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
-	<hr/>
+<div class="grid">
+  <div class="left-grid">
+    <br /><br /> <br />
+    <a href="/" class="home-link"><img src="/assets/saLogoGreen.png" width="100" height="100px"></a>
+    <br /><br />
+    <h2 style="font-weight: bold; color: #154444"><%= @current_user.first_name %> <%= @current_user.last_name %></h2>
+    <h5><%= @user.phone_number %></h5>
+    <h5><%= @user.email %></h5>
+    <br />
+    <hr align="left" width="50%"/>
+    
+    <h5 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/plusGreen.png" /> New</a></h5>
+    <h5 style="font-weight: bold"><a class="home-link" href="/posts/user/<%= @user.id %>"><img class="logo" src="/assets/myPost2.png" /> My posts</a></h5>
+    <br /><hr align="left" width="50%"/>
 
-	<% @posts.each do |p| %>
-		<div class="a-post">
-			<div class="container">
-			<a href="/post/<%= p.id %>"><p><%= p.title %></p></a>
-			<p>Category: <%= p.category %>, By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></p></a>
-			<p>Updated: <%= time_ago_in_words(p.updated_at) %> ago, Created on: <%= time_tag(p.created_at) %></p>
-			</div>
-		</div>
-	<% end %>
-<!--</div>-->
-<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+    <h5 style="font-weight: bold"><a class="home-link" rel="nofollow" data-method="delete" href="/logout"><img class="logo" src="/assets/logoutRed.png" /> Log out</a></h5>
+  </div>
+
+  <div class="mid-grid">
+    <br />
+    <h5 style="font-weight: bold"><a href="/">Home</a> / <%= @user.first_name %> <%= @user.last_name %></h5>
+    <hr />
+
+    <% @posts.each do |p| %>
+      <a href="/post/<%= p.id %>"><H3><%= p.title %></H3></a>
+      <h5>Category: <a href='/category/<%= p.category.id %>'><%= p.category.category %></a></h5>
+      <h6><em>Updated: <%= time_ago_in_words(p.updated_at) %> ago</em></h6>
+      <hr />
+    <% end %>
+
+    <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+  </div>
+
+  <div class="right-grid">
+  	<% if @current_user.id != @user.id %>
+	  	<br />
+	  	<h5 style="font-weight: bold">Contact info</h5>
+	  	<hr />
+
+	  	<h2 style="font-weight: bold; color: #154444"><%= @user.first_name %> <%= @user.last_name %></h2>
+	  	<h5><%= @user.phone_number %></h5>
+	    <h5><%= @user.email %></h5>
+    <% end %>
+  </div>
+</div>

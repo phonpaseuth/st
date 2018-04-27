@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	
+	before_action :require_user, only: [:allposts]
+
   # Sign up page
 	def new
 		@user = User.new

@@ -8,6 +8,6 @@ class CategoriesController < ApplicationController
 	def show_category
 		@user = @current_user
 		@category = Category.find(params[:id])
-		@posts = @category.posts.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 5)
+		@posts = @category.posts.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 4)
 	end
 end

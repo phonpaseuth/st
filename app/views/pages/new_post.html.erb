@@ -3,16 +3,17 @@
 
 <div class="grid">
   <div class="left-grid">
-    <h3><a href="/" class="home-link"><img src="/assets/saLogoGreen.png" width="50" height="50px" /> StudentsAd</a></h3>
+    <br /><br /> <br />
+    <a href="/" class="home-link"><img src="/assets/saLogoGreen.png" width="100" height="100px"></a>
     <br /><br />
     <h2 style="font-weight: bold; color: #154444"><%= @user.first_name %> <%= @user.last_name %></h2>
     <h5><%= @user.phone_number %></h5>
     <h5><%= @user.email %></h5>
     <br />
     <hr align="left" width="50%"/>
-
+    
     <h5 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/plusGreen.png" /> New</a></h5>
-    <h5 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/myPost2.png" /> My posts</a></h5>
+    <h5 style="font-weight: bold"><a class="home-link" href="/posts/user/<%= @user.id %>"><img class="logo" src="/assets/myPost2.png" /> My posts</a></h5>
     <br /><hr align="left" width="50%"/>
 
     <h5 style="font-weight: bold"><a class="home-link" rel="nofollow" data-method="delete" href="/logout"><img class="logo" src="/assets/logoutRed.png" /> Log out</a></h5>

@@ -18,11 +18,10 @@
     <%= javascript_include_tag 'application.js', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<% if flash[:notice] %>
-  <div class="notice" style="text-align: center"><%= flash[:notice] %></div>
-<% end %>
-
 <body>
+  <% if flash[:notice] %>
+      <div class="notice" align="center"><h5 class="bold" style="color: #154444"><%= flash[:notice] %></h5></div>
+    <% end %>
   <%= yield %>
 </body>
 
