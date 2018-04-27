@@ -11,10 +11,12 @@
     <h5><%= @user.email %></h5>
     <br />
     <hr align="left" width="50%"/>
-    <h4 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/plusGreen.png" /> New</a></h4>
+
+    <h5 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/plusGreen.png" /> New</a></h5>
+    <h5 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/myPost2.png" /> My posts</a></h5>
     <br /><hr align="left" width="50%"/>
 
-    <h4 style="font-weight: bold"><a class="home-link" rel="nofollow" data-method="delete" href="/logout"><img class="logo" src="/assets/logoutRed.png" /> Log out</a></h4>
+    <h5 style="font-weight: bold"><a class="home-link" rel="nofollow" data-method="delete" href="/logout"><img class="logo" src="/assets/logoutRed.png" /> Log out</a></h5>
   </div>
 
   <div class="mid-grid">
@@ -24,8 +26,10 @@
 
     <% @posts.each do |p| %>
       <a href="/post/<%= p.id %>"><H3><%= p.title %></H3></a>
-      <h5>Category: <a href='/category/<%= p.category.id %>'><%= p.category.category %></a>, By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></h5></a>
-      <h6>Updated: <%= time_ago_in_words(p.updated_at) %> ago, Created on: <%= time_tag(p.created_at) %></h6>
+      <h5>
+        By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></a></h5>
+      <h5>Category: <a href='/category/<%= p.category.id %>'><%= p.category.category %></a></h5>
+      <h6><em>Updated: <%= time_ago_in_words(p.updated_at) %> ago</em></h6>
       <hr />
     <% end %>
 

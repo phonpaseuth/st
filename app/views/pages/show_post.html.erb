@@ -1,59 +1,89 @@
-<!-- Show specific post page -->
-<div class="show-post">
-	<div class="container">
-		<H2><%= @post.title %></H2>
-		<p>Category: <a href='/category/<%= @post.category.id %>'><%= @post.category.category %></p></a>
-		<p>Updated: <%= time_ago_in_words(@post.updated_at) %> ago, Created on: <%= time_tag(@post.created_at) %></p>
-		<p>By: <a href="/posts/user/<%= @post.user.id %>"><%= @post.user.first_name.capitalize %> <%= @post.user.last_name.capitalize %></p></a>
+<%= stylesheet_link_tag "pages.css" %>
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 
-		<!-- Only the owner of the post can edit and delete the post -->
-		<% if @post.user.id == @current_user.id %>
-			<%= link_to "Edit Post", edit_post_path(@post) %> &emsp;
-			<%= link_to 'Delete Post', delete_post_path(@post), method: :delete, data: { confirm: 'Confirm deletion?' } %>
-		<% end %>
-		<hr />
+<div class="grid">
+  <div class="left-grid">
+    <h3><a href="/" class="home-link"><img src="/assets/saLogoGreen.png" width="50" height="50px" /> StudentsAd</a></h3>
+    <br /><br />
+    <h2 style="font-weight: bold; color: #154444"><%= @user.first_name %> <%= @user.last_name %></h2>
+    <h5><%= @user.phone_number %></h5>
+    <h5><%= @user.email %></h5>
+    <br />
+    <hr align="left" width="50%"/>
 
-		<p><%= @post.description %></p>
+    <h5 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/plusGreen.png" /> New</a></h5>
+    <h5 style="font-weight: bold"><a class="home-link" href="/create_post"><img class="logo" src="/assets/myPost2.png" /> My posts</a></h5>
 
+    <br /><hr align="left" width="50%"/>
+
+    <h5 style="font-weight: bold"><a class="home-link" rel="nofollow" data-method="delete" href="/logout"><img class="logo" src="/assets/logoutRed.png" /> Log out</a></h5>
+
+  </div>
+
+  <div class="mid-grid">
+    <br />
+    <h5 style="font-weight: bold"><a href="/">Home</a> / <%= @post.title %></h5>
+    <hr />
+
+    <H1><%= @post.title %></H1>
+
+    <h5>
+      By: <a href="/posts/user/<%= @post.user.id %>"><%= @post.user.first_name.capitalize %> <%= @post.user.last_name.capitalize %></a> &emsp; 
+      Category: <a href='/category/<%= @post.category.id %>'><%= @post.category.category %></a>
+    </h5>
+    <h6><em>Updated: <%= time_ago_in_words(@post.updated_at) %> ago &emsp; Created on: <%= time_tag(@post.created_at) %></em></h6>
+
+    <% if @post.user.id == @current_user.id %>
+      <h5 style="font-weight: bold">
+        <a href="/post/<%= @post.id %>/edit" class="home-link"><img class="logo" src="/assets/edit.png" /> Edit</a> &emsp;
+        <a class="home-link" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/post/<%= @post.id %>"><img class="logo" src="/assets/delete.png" /> Delete</a>
+      </h5>
+    <% end %>
+    <hr />
+
+    <h4><%= @post.description %></h4>
+    <br /><hr />
+
+  </div>
+
+  <div class="right-grid">
     <!--*********************
-      Add a comment section
+    Add a comment section
     **********************-->
-    <div class="post">
-      <div class="container">
-        <div class="form">
-        <%= form_for(:comment, url: create_comment_path) do |f| %>  
-          <dl>
-          <dt>Comment</dt>
-          <dd><%= f.text_area :text, :required => 'required' %> </dd>
-          </dl>
-          <%= f.submit "Create", class: "btn-submit" %>
-        <% end %>
-        </div>
-      </div>
-    </div>
-    
-  	<!--************************** 
-      Display comments if exists
+    <%= form_for(:comment, url: create_comment_path) do |f| %>  
+      <br />
+      <h5 style="font-weight: bold">Comments</h5>
+      <hr />
+
+      <h5><textarea required="required" name="comment[text]" id="comment_text" style="width: 100%; height: 100px"></textarea></h5>
+
+      <h6><%= f.submit "Comment", class: "btn btn-dark" %></h6>
+      <hr />
+      <% end %>
+
+    <!--************************** 
+    Display comments if exists
     ***************************-->
     <% if @comments.any? %>
-      <h1>Comments:</h1>
-
       <% @comments.each do |c| %>
-        <p><%= c.text %></p>
-        <p><%= time_ago_in_words(c.created_at) %> ago</p>
+        <h4><%= c.text %></h4>
+        <h6><em><%= time_ago_in_words(c.created_at) %> ago</em> &emsp;
 
         <!-- Only the poster and original poster can see the username and delete the comments -->
         <% if c.user.id == current_user.id || current_user.id == c.post.user.id %>
-          <p>by: <a href="/posts/user/<%= c.user.id %>"><%= c.user.first_name %> <%= c.user.last_name %></a></p>
-          <%= link_to "Delete comment", { :controller => "pages", :action => "delete_comment", :id => c.id }, method: :delete, data: { confirm: "Confirm deletion?" } %>
+          by: <a href="/posts/user/<%= c.user.id %>"><%= c.user.first_name %> <%= c.user.last_name %></a></h6>
+          <a class="home-link" data-confirm="Confirm deletion?" rel="nofollow" data-method="delete" href="/delete_comment/<%= c.id %>"><img class="logo" src="/assets/delete.png"></a>
+          
+        
         <% else %>
-          <p>by: Anonymous</p>
+          by: Anonymous</h6>
         <% end %>
 
         <hr />
       <% end %>
     <% end %>
-	</div>
-</div>
 
-<%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
+    <%= will_paginate @comments, renderer: BootstrapPagination::Rails %>
+  </div>
+
+</div>

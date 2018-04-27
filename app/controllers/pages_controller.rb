@@ -12,6 +12,7 @@
 	def reset_password; end;
 
 	def show_post
+		@user = @current_user
 		@post = Post.find(params[:id])
 		@comments = Post.find(params[:id]).comments.order(created_at: :desc).paginate(:page => params[:page], :per_page => 5)
 	end
@@ -32,6 +33,7 @@
 	end
 
 	def edit_post
+		@user = @current_user
 		@post = Post.find(params[:id])
 	end
 
