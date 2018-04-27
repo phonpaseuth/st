@@ -21,7 +21,7 @@
 
   <div class="mid-grid">
     <br />
-    <h5 style="font-weight: bold"><a href="/">Home</a> / <%= @post.title %></h5>
+    <h5 style="font-weight: bold"><a href="/">Home</a> / Post: <%= @post.title %></h5>
     <hr />
 
     <h3 class="bold"><%= @post.title %></h3>
@@ -61,17 +61,13 @@
     ***************************-->
     <% if @comments.any? %>
       <% @comments.each do |c| %>
-        <h5><%= c.text %></h5>
-        <h6><em><%= time_ago_in_words(c.created_at) %> ago</em> &emsp;
-
-        <!-- Only the poster and original poster can see the username and delete the comments -->
+        <h5><a href="/posts/user/<%= c.user.id %>"><%= c.user.first_name %> <%= c.user.last_name %></a>: <%= c.text %></h5>
+        <h6><em><%= time_ago_in_words(c.created_at) %> ago</em>&emsp;
+          
+        <!-- Only the poster and original poster can delete the comments -->
         <% if c.user.id == current_user.id || current_user.id == c.post.user.id %>
-          by: <a href="/posts/user/<%= c.user.id %>"><%= c.user.first_name %> <%= c.user.last_name %></a></h6>
           <a class="home-link" data-confirm="Confirm deletion?" rel="nofollow" data-method="delete" href="/delete_comment/<%= c.id %>"><img class="logo" src="/assets/delete.png"></a>
           
-        
-        <% else %>
-          by: Anonymous</h6>
         <% end %>
 
         <hr />

@@ -29,6 +29,11 @@
       <h5>By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></a></h5>
       <h5>Category: <a href='/category/<%= p.category.id %>'><%= p.category.category %></a></h5> 
       <h6><em>Updated: <%= time_ago_in_words(p.updated_at) %> ago</em></h6>
+      <% if p.user.id == @user.id %>
+      <h5 style="font-weight: bold">
+        <a href="/post/<%= p.id %>/edit" class="home-link"><img class="logo" src="/assets/edit.png" /> Edit</a> &emsp;
+        <a class="home-link" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/post/<%= p.id %>"><img class="logo" src="/assets/delete.png" /> Delete</a></h5>
+      <% end %>
       <hr />
     <% end %>
 

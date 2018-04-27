@@ -22,14 +22,13 @@
 
   <div class="mid-grid">
     <br />
-    <h5 style="font-weight: bold"><a href="/">Home</a> / <%= @category.category %></h5>
+    <h5 style="font-weight: bold"><a href="/">Home</a> / Category: <%= @category.category %></h5>
     <hr />
 
     <% @posts.each do |p| %>
       <a href="/post/<%= p.id %>"><H3 class="bold"><%= p.title %></H3></a>
       <h5>
         By: <a href="/posts/user/<%= p.user.id %>"><%= p.user.first_name %> <%= p.user.last_name %></a></h5>
-      <h5>Category: <a href='/category/<%= p.category.id %>'><%= p.category.category %></a></h5>
       <h6><em>Updated: <%= time_ago_in_words(p.updated_at) %> ago</em></h6>
       <hr />
     <% end %>
